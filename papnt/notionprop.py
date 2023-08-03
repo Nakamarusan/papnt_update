@@ -150,6 +150,8 @@ class NotionPropMaker:
             given = author.get('given')
             if given is None:
                 authors_.append(author['family'].replace(' ', '_'))
+              except KeyError:
+                pass # 何もしない
                 break
             authors_.append(given + ' ' + author['family'])
         return authors_
